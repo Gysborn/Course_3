@@ -22,43 +22,48 @@
         </svg>
       </a>
     </div>
-  </header>
-
+  </header>}
   <main class="container">
     <section class="items">
       <div class="items__item item item--post">
         <div class="item__top">
-          <a href="/user-feed/{{current_post.poster_name}}" class="item__head">
+          <a href="/user-feed/{{post.poster_name}}" class="item__head">
             <div class="item__ava-wrap">
-              <span class="item__username">{{current_post.poster_name}}</span>
-              <img src="{{current_post.poster_avatar}}" alt="" class="item__ava" width="47">
+              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
-            <span class="item__username">{{current_post.content}}</span>
+            <span class="item__username">{{post.poster_name}}</span>
           </a>
-          <button type="button" class="item__bookmark-btn">
-            <img src="/static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
-          </button>
+          {% if post.pk in bookmarks %}
+           <a href="/bookmarks/remove/{{post.pk}}" class="item__bookmark-btn.active">
+          {% else %}
+           <a href="/bookmarks/add/{{post.pk}}" class="item__bookmark-btn">
+          {% endif %}
+            <img src="../static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
+           </a>
         </div>
         <a href="" class="item__post-link">
-          <img src="{{current_post.pic}}" alt="" width="348" class="item__post-img">
+          <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
         </a>
         <div class="item__descr">
+          <p class="item__text">
+            {{post.content|safe}}
+          </p>
         </div>
         <div class="item__bottom">
           <div class="item__post-info">
             <p class="item__comments-counter">{{comments|length}} комментария</p>
             <div class="item__counter">
-              <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
-              <span class="item__counter-text">{{current_post.views_count}}</span>
+              <img src="../static/img/eye.png" alt="" class="item__counter-icon" width="26">
+              <span class="item__counter-text">{{post.views_count}}</span>
             </div>
           </div>
-         {% for comment in comments %}
+       {% for comment in comments %}
           <div class="item__comments">
             <p class="item__comment">
-              <b>{{comment.commenter_name}}:</b> {{comment.comment}}
+              <b>{{comment.commenter_name}} :</b> {{comment.comment}}
             </p>
           </div>
-         {% endfor %}
+       {% endfor %}
         </div>
       </div>
     </section>

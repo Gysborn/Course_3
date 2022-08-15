@@ -25,7 +25,7 @@
   </header>
   <main class="container">
     <div class="search">
-      <form action="/" class="search__form">
+      <form action="/search" class="search__form">
         <input type="search" class="search__input">
       </form>
       <p class="search__results">Найдено постов: {{posts|length}}</p>
@@ -53,9 +53,13 @@
         </div>
         <div class="item__post-bottom">
           <a href="/post/{{post.pk}}" class="item__btn-more">Подробнее</a>
-          <button type="button" class="item__bookmark-btn">
+            {% if post in bookmarks %}
+              <a href="/bookmarks/remove/{{post.pk}}" class="item__bookmark-btn.active">
+            {% else %}
+              <a href="/bookmarks/add/{{post.pk}}" class="item__bookmark-btn">
+            {% endif %}
             <img src="static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
-          </button>
+              </a>
         </div>
       </div>
     </section>

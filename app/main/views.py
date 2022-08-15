@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, abort
 
-from app.dao.main_dao import get_posts_all
+from app.dao.main_dao import get_posts_all, get_id_bookmarks
 
 main_blueprint = Blueprint('main_blueprint', __name__)
 
@@ -11,5 +11,9 @@ def index_page():
     Выводит стартовую страничку
     :return: 'index.html'
     """
-    return render_template('index.html', all_posts=get_posts_all())
+    try:
+        all_posts = get_posts_all()
+    except:
+        return abort(404)
+    return render_template('index.html', all_posts=all_posts, bookmarks=get_id_bookmarks())
 

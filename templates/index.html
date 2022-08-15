@@ -18,7 +18,7 @@
       </a>
       <a href="/bookmarks" class="header__bookmark-btn">
         <img src="../static/img/bookmark.png" alt="" class="header__bookmark-icon" width="28">
-        <span class="header__bookmark-counter">3</span>
+        <span class="header__bookmark-counter">{{bookmarks|length}}</span>
       </a>
     </div>
   </header>
@@ -53,11 +53,14 @@
         </div>
         <div class="item__post-bottom">
           <a href="/post/{{ post.pk }}" class="item__btn-more">Подробнее</a>
-          <button type="button" class="item__bookmark-btn">
             <a href="/bookmarks/add/{{post.pk}}">
+           {% if post.pk in bookmarks %}
+             <a href="/bookmarks/remove/{{post.pk}}" class="item__bookmark-btn.active">
+           {% else %}
+             <a href="/bookmarks/add/{{post.pk}}" class="item__bookmark-btn">
+           {% endif %}
               <img src="../static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
-            </a>
-          </button>
+             </a>
         </div>
       </div>
     </section>
