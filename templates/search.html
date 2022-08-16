@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKYPROGRAM search</title>
+  <title>SKYPROGRAM search {{query}}</title>
   <link href="../static/css/styles.min.css" rel="stylesheet">
 </head>
 
@@ -28,6 +28,7 @@
       <form action="/search" method="get" class="search__form">
         <input type="text" name="s" class="search__input">
       </form>
+      <p class="search__results">По слову {{query}} найдено постов: {{posts|length}}</p>
     </div>
   {% for post in posts %}
     <section class="items">

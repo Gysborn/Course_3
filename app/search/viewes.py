@@ -16,4 +16,4 @@ def search_page():
         posts = search_for_posts(query)
     except:
         return abort(404)
-    return render_template('search.html', posts=posts, bookmarks=get_id_bookmarks())
+    return render_template('search.html', posts=posts, bookmarks=get_id_bookmarks(), query=query)
