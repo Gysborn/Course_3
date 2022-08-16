@@ -40,7 +40,7 @@
     "short": "Утром проснулся раньше всех...",
     "views_count": 366,
     "likes_count": 198,
-    "tags": "travel food",
+    "tags": "travel",
     "pk": 4
   },
   {
@@ -51,7 +51,7 @@
     "short": "Пурр-пурр! типичная инстарамная...",
     "views_count": 287,
     "likes_count": 99,
-    "tags": "insta cat food",
+    "tags": "cat",
     "pk": 5
   },
   {
@@ -84,7 +84,7 @@
     "short": "Утром отправились на катере...",
     "views_count": 141,
     "likes_count": 45,
-    "tags": "travel insta",
+    "tags": "travel",
     "pk": 8
   }
 ]

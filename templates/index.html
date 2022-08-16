@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="item__post-bottom">
-          <a href="/post/{{ post.pk }}" class="item__btn-more">Подробнее</a>
+          <a href="/post/{{post.pk}}" class="item__btn-more">Подробнее</a>
             <a href="/bookmarks/add/{{post.pk}}">
            {% if post.pk in bookmarks %}
              <a href="/bookmarks/remove/{{post.pk}}" class="item__bookmark-btn.active">
