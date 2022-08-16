@@ -7,7 +7,7 @@
     "short": "Ага, опять еда!...",
     "views_count": 376,
     "likes_count": 154,
-    "tags": ["food"],
+    "tags": "food",
     "pk": 1
   },
   {
@@ -18,7 +18,7 @@
     "short": "Вышел погулять днем...",
     "views_count": 233,
     "likes_count": 101,
-    "tags": ["insta"],
+    "tags": "insta",
     "pk": 2
   },
   {
@@ -29,7 +29,7 @@
     "short": "Смотрите-ка – ржавые елки!...",
     "views_count": 187,
     "likes_count": 67,
-    "tags": ["insta"],
+    "tags": "insta",
     "pk": 3
   },
   {
@@ -40,7 +40,7 @@
     "short": "Утром проснулся раньше всех...",
     "views_count": 366,
     "likes_count": 198,
-    "tags": ["travel", "food"],
+    "tags": "travel food",
     "pk": 4
   },
   {
@@ -51,7 +51,7 @@
     "short": "Пурр-пурр! типичная инстарамная...",
     "views_count": 287,
     "likes_count": 99,
-    "tags": ["insta", "cat", "food"],
+    "tags": "insta cat food",
     "pk": 5
   },
   {
@@ -62,7 +62,7 @@
     "short": "Вот обычная лампочка...",
     "views_count": 299,
     "likes_count": 134,
-    "tags": ["insta"],
+    "tags": "insta",
     "pk": 6
   },
   {
@@ -73,7 +73,7 @@
     "short": "Очень красивый закат...",
     "views_count": 166,
     "likes_count": 76,
-    "tags": ["insta"],
+    "tags": "insta",
     "pk": 7
   },
   {
@@ -84,7 +84,7 @@
     "short": "Утром отправились на катере...",
     "views_count": 141,
     "likes_count": 45,
-    "tags": ["travel", "insta"],
+    "tags": "travel insta",
     "pk": 8
   }
 ]

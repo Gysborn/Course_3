@@ -25,26 +25,25 @@
   </header>
   <main class="container">
     <div class="search">
-      <form action="/search" class="search__form">
-        <input type="search" class="search__input">
+      <form action="/search" method="get" class="search__form">
+        <input type="text" name="s" class="search__input">
       </form>
-      <p class="search__results">Найдено постов: {{posts|length}}</p>
     </div>
   {% for post in posts %}
     <section class="items">
       <div class="items__item item">
         <div class="item__top">
-          <a href="/user-feed.html" class="item__head">
+          <a href="/user-feed/{{post.poster_name}}" class="item__head">
             <div class="item__ava-wrap">
-              <img src="{{posts.poster_avatar}}" alt="" class="item__ava" width="47">
+              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
             <span class="item__username">{{post.poster_name}}</span>
           </a>
         </div>
         <a href="/post/{{posts.pk}}" class="item__post-link">
-          <img src="{{posts.pic}}" alt="" width="348" class="item__post-img">
+          <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr"><a href="/tag.html" class="item__tag">#food</a>{{post.short}}</p>
+        <p class="item__descr"><a href="/tag.html" class="item__tag">#{{post.tags}}</a>{{post.short}}</p>
         <div class="item__post-info">
           <div class="item__counter">
             <img src="static/img/eye.png" alt="" class="item__counter-icon" width="26">
