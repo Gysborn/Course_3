@@ -1,7 +1,9 @@
 import json
-from typing import Union
+from typing import List
 
 from flask import abort
+
+from app.exeptions import BadRequest
 
 POST_PATH = 'data/data.json'
 COMMENTS_PATH = 'data/comments.json'
@@ -58,7 +60,7 @@ def get_posts_all():
     return all_posts
 
 
-def get_post_by_pk(pk) -> Union[dict, bool]:
+def get_post_by_pk(pk) -> List[str]:
     """
 
     :param pk:
@@ -69,9 +71,9 @@ def get_post_by_pk(pk) -> Union[dict, bool]:
     try:
         post = all_posts[int(pk) - 1]
     except IndexError:
-        return abort(418)
+        raise BadRequest(name='Index out range', description='Индекс вне диапазона')
     except ValueError:
-        abort(400)
+        raise BadRequest(name='Value error', description='Значение не является числом')
     return post
 
 
@@ -84,8 +86,8 @@ def search_for_posts(query):
     posts_found = []
     try:
         posts = get_posts_all()
-    except:
-        abort(404)
+    except BadRequest:
+        raise BadRequest(name='Some error', description='Что то пошло не так')
 
     for post in posts:
         if query.lower() in post["content"].lower():
@@ -140,7 +142,7 @@ def get_bookmarks_by_id():
     for bookmark in bookmarks:
         bookmark_post.append(all_posts[bookmark - 1]) # по ай ди выцепляем посты и складыаем в лист
     if not bookmark_post:
-        abort(404)
+        raise BadRequest(name='Some error', description='Ничего не найдено')
     return bookmark_post
 
 
