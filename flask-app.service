@@ -3,7 +3,7 @@ Description=Flask app service
 After=network.target
 
 [Service]
-WorkingDirectory=/home/dmasicev/Course_3
+WorkingDirectory=/home/dmasicev/Course_3/
 Environment=FLASK_APP=main.py
 ExecStart=/home/dmasicev/Course_3/venv/bin/python -m flask run -h 0.0.0.0 -p 25000
 Restart=always
